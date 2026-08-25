@@ -25,7 +25,7 @@ var periodEnd = periodStart.AddMonths(1);
 8. Возможно деление на ноль Math.Round(row.Amount / row.Budget * 100, 2);
 
  Что бы изменил в структуре
-1. По коду видно, что используется CQRS + MediatR. Нет валидатора для проверки данных в GetProjectReportQuery.
+1. Добавил бы валидатор для проверки данных в GetProjectReportQuery.
 2. Нет логирования. Можно использовать Serilog
 3. Как вариант - применить паттерн репозиторий, чтобы не работать с IMongoDatabase напрямую
 
