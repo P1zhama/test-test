@@ -4,9 +4,25 @@ using System.Threading;
 using System.Threading.Tasks;
 using Project.Domain.Entities;
 using Project.Domain.ValueObjects;
+using ProjectEntity = Project.Domain.Entities.Project;
 
 namespace Project.Application.Common.Interfaces
-{   
+{
+    public interface IEmployeeRepository
+    {
+        Task<Employee?> GetByIdAsync(string id, CancellationToken cancellationToken);
+
+        Task<IReadOnlyList<Employee>> GetAllAsync(CancellationToken cancellationToken);
+
+        Task SaveRatesAsync(Employee employee, CancellationToken cancellationToken);
+    }
+
+    public interface IProjectRepository
+    {
+        Task<ProjectEntity?> GetByIdAsync(string id, CancellationToken cancellationToken);
+
+        Task<IReadOnlyList<ProjectEntity>> GetAllAsync(CancellationToken cancellationToken);
+    }
     public interface IClosedPeriodRepository
     {
         Task<bool> IsClosedAsync(YearMonth period, CancellationToken cancellationToken);
